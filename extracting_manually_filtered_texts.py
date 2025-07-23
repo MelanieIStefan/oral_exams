@@ -6,13 +6,20 @@ import pandas as pd
 data_post_manual_filter = pd.read_csv("/home/melanie/Documents/oral_exams/data_combined_manually_filtered.csv")
 
 # filter by whether to include the post
-mask =   data_post_manual_filter["Keep?"].str.contains("no")
+mask =   data_post_manual_filter["Keep?"].str.contains("yes")
 
-print(sum(mask))
 
-# included_quotes = data_post_manual_filter[mask]
+included_quotes = data_post_manual_filter[mask].Body
 
-# print(included_quotes.head())
-# print(str(len(included_quotes.index)))
+
+# check that this worked, and count remaining rows
+print(included_quotes.head())
+print(str(len(included_quotes.index)))
+
+# save to .txt file for thematic analysis
+
+included_quotes.to_csv("data_for_thematic_analysis.txt",sep="\n")
+
+
 
 
