@@ -34,7 +34,7 @@ medizin = total_length - medizinstudium
 values = [medizin, medizinstudium]
 names = 'r/Medizin', 'r/Medizinstudium'
 
-plt.pie(values, labels = names,  wedgeprops = { 'linewidth' : 3, 'edgecolor' : 'white' }, colors=fullcolors, autopct='%1.1f%%');
+plt.pie(values, labels = names,  wedgeprops = { 'linewidth' : 3, 'edgecolor' : 'white' }, colors=pastelcolors, autopct='%1.1f%%');
 
 # plt.show();
 
@@ -52,7 +52,7 @@ comments = total_length-posts
 values = [posts, comments]
 names = 'Post', 'Kommentar'
 
-plt.pie(values, labels = names,  wedgeprops = { 'linewidth' : 3, 'edgecolor' : 'white' }, colors=fullcolors, autopct='%1.1f%%');
+plt.pie(values, labels = names,  wedgeprops = { 'linewidth' : 3, 'edgecolor' : 'white' }, colors=pastelcolors, autopct='%1.1f%%');
 
 # plt.show();
 
@@ -62,7 +62,7 @@ plt.close()
 
 
 
-count contributions per user 
+# count contributions per user 
 
 
 contributionsPerAuthor = Counter(final_dataset["Author"])
