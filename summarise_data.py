@@ -27,54 +27,54 @@ fullcolors = ['#008ac5', '#dc0a2e', '#04a777','#f9e900', '#3d2b3d']
 pastelcolors = ['#c2edff', '#fcc5ce', '#c3fdec', '#fffbc2','#e6dbe6']
 
 # # count posts per subreddit
-# medizinstudium =   sum(final_dataset["Subreddit"].str.contains("Medizinstudium"))
+medizinstudium =   sum(final_dataset["Subreddit"].str.contains("Medizinstudium"))
 
-# medizin = total_length - medizinstudium
+medizin = total_length - medizinstudium
 
-# values = [medizin, medizinstudium]
-# names = 'r/Medizin', 'r/Medizinstudium'
+values = [medizin, medizinstudium]
+names = 'r/Medizin', 'r/Medizinstudium'
 
-# plt.pie(values, labels = names,  wedgeprops = { 'linewidth' : 3, 'edgecolor' : 'white' }, colors=fullcolors, autopct='%1.1f%%');
+plt.pie(values, labels = names,  wedgeprops = { 'linewidth' : 3, 'edgecolor' : 'white' }, colors=fullcolors, autopct='%1.1f%%');
 
-# # plt.show();
+# plt.show();
 
-# plt.savefig("subreddit.png")
+plt.savefig("subreddit.png")
 
-# plt.close()
+plt.close()
 
-# # count submissions  vs comments
-
-
-# posts =   sum(final_dataset["Type"].str.contains("submission"))
-# comments = total_length-posts 
+# count submissions  vs comments
 
 
-# values = [posts, comments]
-# names = 'Post', 'Kommentar'
-
-# plt.pie(values, labels = names,  wedgeprops = { 'linewidth' : 3, 'edgecolor' : 'white' }, colors=fullcolors, autopct='%1.1f%%');
-
-# # plt.show();
-
-# plt.savefig("type.png")
-
-# plt.close()
+posts =   sum(final_dataset["Type"].str.contains("submission"))
+comments = total_length-posts 
 
 
+values = [posts, comments]
+names = 'Post', 'Kommentar'
 
-# count contributions per user 
+plt.pie(values, labels = names,  wedgeprops = { 'linewidth' : 3, 'edgecolor' : 'white' }, colors=fullcolors, autopct='%1.1f%%');
+
+# plt.show();
+
+plt.savefig("type.png")
+
+plt.close()
 
 
-# contributionsPerAuthor = Counter(final_dataset["Author"])
 
-# print(contributionsPerAuthor)
+count contributions per user 
 
-# contributions = list(contributionsPerAuthor.values())
 
-# plt.hist(contributions, color=fullcolors[0], align='left')
-# plt.xlabel('Beiträge pro User*in')
-# plt.savefig("beitraege_pro_person.png")
-# plt.close()
+contributionsPerAuthor = Counter(final_dataset["Author"])
+
+print(contributionsPerAuthor)
+
+contributions = list(contributionsPerAuthor.values())
+
+plt.hist(contributions, color=fullcolors[0], align='left')
+plt.xlabel('Beiträge pro User*in')
+plt.savefig("beitraege_pro_person.png")
+plt.close()
 
 
 
@@ -110,36 +110,34 @@ plt.close()
 
 
 
-# Useful resources:
-# https://python-graph-gallery.com/
 
 
 
 # Sentiment analysis
 
 
-# polarities = ["NA"] * len(final_dataset.index)
+polarities = ["NA"] * len(final_dataset.index)
 
 
-# for i in range(0,len(final_dataset)):
-#     blob = TextBlob(final_dataset.Body[i])
-#     polarities[i] =  blob.sentiment.polarity #11
+for i in range(0,len(final_dataset)):
+    blob = TextBlob(final_dataset.Body[i])
+    polarities[i] =  blob.sentiment.polarity #11
     
-# final_dataset ['polarity'] = polarities
+final_dataset ['polarity'] = polarities
 
 
-# print(final_dataset.head())
+print(final_dataset.head())
 
 
 
-# stimmung = sns.boxplot(y='polarity', data=final_dataset, color=fullcolors[0], widths=0.5)
+stimmung = sns.boxplot(y='polarity', data=final_dataset, color=fullcolors[0], widths=0.5)
  
-# # Add jitter with the swarmplot function
-# stimmung = sns.swarmplot(y='polarity', data=final_dataset, color=fullcolors[4])
+# Add jitter with the swarmplot function
+stimmung = sns.swarmplot(y='polarity', data=final_dataset, color=fullcolors[4])
 
 
-# plt.ylabel('Stimmung')
-# plt.savefig("stimmung.png")
+plt.ylabel('Stimmung')
+plt.savefig("stimmung.png")
 
 
 
