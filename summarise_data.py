@@ -7,7 +7,7 @@ from collections import Counter
 from wordcloud import WordCloud
 from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
-
+import statistics
 
 import nltk
 
@@ -136,9 +136,11 @@ stimmung = sns.boxplot(y='polarity', data=final_dataset, color=fullcolors[0], wi
 stimmung = sns.swarmplot(y='polarity', data=final_dataset, color=fullcolors[4])
 
 
+
 plt.ylabel('Stimmung')
 plt.savefig("stimmung.png")
 
+print(statistics.median(polarities))
 
 
 # Useful resources
